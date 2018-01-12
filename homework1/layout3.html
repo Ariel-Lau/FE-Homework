@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>左右定宽中间自适应布局</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .left{
+        float: left;
+        width: 300px;
+        height: 500px;
+        border: 1px solid;
+        background-color: grey;
+        color: white;
+    }
+    .content{
+        margin-left: 300px;
+        margin-right: 350px;
+        height: 500px;
+        border: 1px solid;
+        background-color: yellowgreen;
+        color:white;
+    }
+    .right{
+        float: right;
+        width: 350px;
+        height: 500px;
+        border: 1px solid;
+        background-color:gold;
+        color: white;
+    }
+    </style>
+</head>
+<body>  
+    <div class="left">
+        左侧栏<br>
+        优点：
+    </div>
+    <div class="right">
+        右侧栏<br>
+        缺点:
+    </div>
+    <div class="content">
+        中间栏<br>
+        相关知识点：左右div左右float+中间div放于左右div之后<br>
+        浮动定位可能出现的问题是因为：父元素可能没有被撑开，父元素不能使用子元素的高度，可能需要清除浮动clearfix<br>
+        <strong>为什么中间content的div要放在最后？</strong>
+        假如某个div元素A是浮动的，如果A元素上一个元素也是浮动的，那么A元素会跟随在上一个元素的后边(如果一行放不下这两个元素，那么A元素会被挤到下一行)；如果A元素上一个元素是标准流中的元素，那么A的相对垂直位置不会改变，也就是说A的顶部总是和上一个元素的底部对齐<br>
+        如果中间的div放在左div和右div之间，那么右div向右浮动之后，其位置总是在中间div之下，不能并列，所以中间的div必须放在最后。
+    </div> 
+</body>
+</html>

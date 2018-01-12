@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>左右定宽中间自适应布局</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .left{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 500px;
+        border: 1px solid;
+        background-color: grey;
+        color: white;
+    }
+    .content{
+        margin-left: 300px;
+        margin-right: 350px;
+        height: 500px;
+        border: 1px solid;
+        background-color: yellowgreen;
+        color:white;
+
+    }
+    .right{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 350px;
+        height: 500px;
+        border: 1px solid;
+        background-color:gold;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="left">
+        左侧栏
+        <br>
+        优点：
+    </div>
+    <div class="content">
+        中间栏<br>
+        相关知识点：左右绝对定位实现左右定宽中间自适应布局<br>
+        知识点拓展：<br>
+        1.top、bottom、left、right系列和margin-系列的区别:<br>
+          (1)top、bottom、left、right是<strong>绝对定位</strong>，必须设置position为absolute;margin-系列设置是<strong>相对定位</strong>。<br>
+          <strong>注意：若用top系列，而position未设置为absolute，设置将不起作用。</strong><br>
+          (2)top系列在绝对定位时是相对body或者position：relative的父级元素的绝对定位；margin-系列的相对定位，是指相对<strong>相邻元素</strong>的定位。
+    </div>
+    <div class="right">
+        右侧栏
+        <br>
+        缺点：在浏览器放大缩小时会出现一些误差，越放大，div块之间的间隔越大；越缩小，div块之间的间隔越小。<br>
+        出现该bug的原因：因为绝对定位之后，左右两个设置绝对定位的div会脱离文档流，所以父元素的高度有可能会比这两个子元素的高度要小，也就是所谓的<strong>高度坍塌。</strong><br>
+        解决方法：给中间div添加margin-top属性取值为0；或者设置所有元素的*{margin: 0;padding: 0;}
+    </div>
+</body>
+</html>

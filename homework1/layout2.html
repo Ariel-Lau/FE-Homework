@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>左右定宽中间自适应布局</title>
+    <style>
+    div {
+        border: 1px solid;
+    }
+    .middle,.left,.right{
+        /* float:left; */
+        float: right;
+    }
+    .middle{
+        width: 100%;
+        border: none;
+        height: 600px;
+    }
+    .left{
+        /* margin-left: -100%; 左浮动布局*/
+        /* margin-right: -300px; 注意：这个负值需要比宽度大1-3px，因为盒模型的宽度包含了border、padding和content，所以在设置margin负值时需要注意大小；*/
+        margin-right: -302px;
+        width: 300px;
+        height: 500px;
+        background-color: grey;
+        color: white;
+    }
+    .content{
+        margin-left: 300px;
+        margin-right: 350px;
+        height: 500px;
+        background-color: yellowgreen;
+        color:white;
+    }
+    .right{
+        width: 350px;
+        height: 500px;
+        /* margin-left: -352px; */
+        margin-right: -100%;
+        background-color:gold;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="middle">
+        <div class="content">
+            中间栏<br>
+            相关知识点：左中外右左／右浮动+左右div左负边距<br>
+            注意：负边距值需要比其宽度大1-3px，因为盒模型的宽度包含了border、padding和content，所以在设置margin负值时需要注意大小。<br>
+            第一次尝试这种布局失败就是因为负边距没有多写1-3px。
+        </div>   
+    </div>
+    <div class="left">
+        左侧栏<br>
+        优点：
+    </div>
+    <div class="right">
+        右侧栏<br>
+        缺点:
+    </div>
+</body>
+</html>

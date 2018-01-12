@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>左右定宽中间自适应布局</title>
+    <style>
+    .container{
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: row;
+    }
+    .left,.content,.right{
+        border: none;
+    }
+    .left{
+        width: 300px;
+        height: 500px;
+        padding: 10px;
+        border: 1px solid;
+        background-color: grey;
+        color: white;
+    }
+    .content{
+        flex: 1 auto;
+        border: 1px solid;
+        padding: 10px;
+        height: 500px;
+        background-color: yellowgreen;
+        color:white;
+    }
+    .right{
+        width: 350px;
+        height: 500px;
+        padding: 10px;
+        border: 1px solid;
+        background-color:gold;
+        color: white;
+    }
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <div class="left">
+            左侧栏<br>
+            优点：只需要左右定宽之后，指定中间div分配全部的剩余空间就可以获得自适应的宽度。
+        </div>
+        <div class="content">  
+            中间栏<br>
+            相关知识点：flex弹性布局   
+        </div>
+        <div class="right">    
+                右侧栏<br>
+                缺点:使用flex来布局会产生高度自适应的问题，因为flex分配完剩余空间之后，默认高度会是外层div的高度，比如中间的div撑开高度之后，两边的div也会随着外部div高度的变化而变化，为了解决这个问题，可以设置双层div。  
+        </div> 
+    </div>
+</body>
+</html>
